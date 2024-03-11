@@ -17,31 +17,35 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div class="home">
-      <header class="header">
-        <div class="title">Chara-Books</div>
-      </header>
-      <div class="home_middle">
-        <div class="home_icon"></div>
-        <div class="home_pic">
-          <img id="myImage" src="" alt="Image" />
-        </div>
-      </div>
-      <div class="home_select">
-        <div class="home_select_u">
-          <div class="select_text bg_red">
-            <a href="#">ワイワイ</a>
+    <header class="header">
+      <div class="title">Chara-Books</div>
+    </header>
+    <main class="reading">
+      <div class="reading_upper">
+        <div class="reading_select">
+          <div class="select_register bg_red">
+            <a href="#">読み聞かせる</a>
           </div>
-          <div class="select_text bg_yellow">
-            <a href="#">ああああ</a>
+          <div class="select_back">
+            <a href="reading.html">HOME</a>
           </div>
         </div>
-        <div class="home_select_l select_text">
-          <a href="#">成長記録を見る</a>
+        <div class="reading_search">
+          <input
+            type="text"
+            id="searchTerm"
+            placeholder="Search for a book..."
+          />
+          <button onclick="searchBooks()">Search</button>
+
+          <div id="searchResults">
+            <!-- 検索結果がここに表示されます -->
+          </div>
         </div>
       </div>
-    </div>
+    </main>
+    <footer>&copy; 2024 My portfolio</footer>
     <!-- JavaScriptファイルの読み込み -->
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/reading.js"></script>
   </body>
 </html>
