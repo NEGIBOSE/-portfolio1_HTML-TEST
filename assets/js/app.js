@@ -3,7 +3,12 @@ window.onload = function () {
     "assets/images/picture1.png",
     "assets/images/picture2.png",
     "assets/images/picture3.png",
-    // 他の画像パスを追加
+    "assets/images/picture4.png",
+    "assets/images/picture5.png",
+    "assets/images/picture6.png",
+    "assets/images/picture7.png",
+    "assets/images/picture8.png",
+    "assets/images/picture9.png",
   ];
 
   var randomIndex = Math.floor(Math.random() * images.length);
