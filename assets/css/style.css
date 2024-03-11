@@ -29,6 +29,11 @@ body {
   background: #333;
   height: 32px;
 }
+img {
+  max-width: 100%; /* 最大幅を200pxに設定 */
+  width: auto; /* 幅を自動調整 */
+  height: auto; /* 高さを自動調整 */
+}
 .home_select {
   display: flex;
   flex-direction: column; /* 列方向に要素を配置 */
