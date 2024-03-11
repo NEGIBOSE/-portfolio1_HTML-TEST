@@ -15,30 +15,32 @@
     <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="./assets/css/sanitize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/search.css" />
   </head>
   <body>
     <header class="header">
       <div class="title">Chara-Books</div>
     </header>
-    <main class="reading">
-      <div class="reading_upper">
-        <div class="reading_select">
-          <div class="select_register bg_red">
+    <main class="search">
+      <div class="search_upper">
+        <div class="search_select">
+          <div class="select_text select_register bg_red">
             <a href="#">読み聞かせる</a>
           </div>
-          <div class="select_back">
-            <a href="reading.html">HOME</a>
+          <div class="select_text select_back">
+            <a href="index.html">HOME</a>
           </div>
         </div>
         <div class="reading_search">
-          <input
-            type="text"
-            id="searchTerm"
-            placeholder="Search for a book..."
-          />
-          <button onclick="searchBooks()">Search</button>
-
-          <div id="searchResults">
+          <div class="search_input">
+            <input
+              type="text"
+              id="searchTerm"
+              placeholder="Search for a book..."
+            />
+            <button onclick="searchBooks()">Search</button>
+          </div>
+          <div id="searchResults" class="searchResults">
             <!-- 検索結果がここに表示されます -->
           </div>
         </div>
@@ -46,6 +48,6 @@
     </main>
     <footer>&copy; 2024 My portfolio</footer>
     <!-- JavaScriptファイルの読み込み -->
-    <script src="assets/js/reading.js"></script>
+    <script src="assets/js/search.js"></script>
   </body>
 </html>

@@ -26,6 +26,13 @@ function displayResults(results) {
 
       var li = document.createElement("li");
       li.textContent = title + " by " + authors + ", published in " + year;
+
+      // クリックしたタイトルを検索ボックスに自動入力する
+      li.addEventListener("click", function () {
+        document.getElementById("searchTerm").value =
+          this.textContent.split(" by ")[0];
+      });
+
       ul.appendChild(li);
     }
     container.appendChild(ul);

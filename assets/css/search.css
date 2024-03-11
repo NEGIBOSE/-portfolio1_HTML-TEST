@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body {
+  background: #eed3d9;
+}
+.search_select {
+  display: flex;
+}
+.select_register {
+  width: 60%;
+}
+.select_back {
+  width: 40%;
+  background: #b5c0d0;
+}
+.reading_search {
+  display: flex;
+  flex-direction: column;
+}
+.search_input {
+  display: flex;
+}
+.search_input input {
+  width: 72%;
+}
+.search_input button {
+  width: 28%;
+}
