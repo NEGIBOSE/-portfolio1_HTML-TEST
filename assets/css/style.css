@@ -10,3 +10,16 @@ body {
   line-height: 1.5;
   color: #333;
 }
+@media screen and (max-width: 390px) and (max-height: 844px) {
+  .header {
+    text-align: center;
+    margin: 8px 0px;
+  }
+  .home_select_u {
+    display: flex;
+    justify-content: center;
+  }
+  .select_text {
+    width: 50%;
+  }
+}

@@ -136,7 +136,8 @@ pre {
  */
 
 a {
-  background-color: transparent;
+  color: inherit; /* 親要素の色を継承する */
+  text-decoration: none;
 }
 
 /**
