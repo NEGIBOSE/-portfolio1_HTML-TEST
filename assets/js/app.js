@@ -1,8 +1,8 @@
 window.onload = function () {
   var images = [
-    "./assets/images/download(1).png",
-    "./assets/images/download(2).png",
-    "./assets/images/download(3).png",
+    "assets/images/picture1.png",
+    "assets/images/picture2.png",
+    "assets/images/picture3.png",
     // 他の画像パスを追加
   ];
 
