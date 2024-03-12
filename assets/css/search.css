@@ -66,3 +66,19 @@ body {
   margin: 0;
   padding: 8px;
 }
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.category_tab {
+  padding: 4px;
+  display: flex;
+  justify-content: space-around;
+}
+.category_tab a {
+  padding: 0;
+}

@@ -44,8 +44,10 @@ main {
   background: #d9d9d9;
 }
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 56px;
+  height: auto;
+  background: #d9d9d9;
+  padding: 4px;
 }
 .home {
   display: flex;
