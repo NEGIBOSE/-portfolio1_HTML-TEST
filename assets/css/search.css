@@ -3,6 +3,14 @@
 body {
   background: #eed3d9;
 }
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search_upper {
+  width: 100%;
+}
 .search_select {
   display: flex;
 }
@@ -22,7 +30,40 @@ body {
 }
 .search_input input {
   width: 72%;
+  background: #d9d9d9;
+  border: 0px;
+  text-align: left;
 }
 .search_input button {
   width: 28%;
+  border: 0;
+}
+.searchResults {
+  height: 200px;
+}
+.searchResults ul {
+  height: 200px; /* 例えば高さを200pxに固定 */
+  background: #d9d9d9;
+  margin: 8px;
+  padding: 0 4px;
+  overflow-y: auto;
+}
+.searchResults li {
+  list-style-type: none;
+  outline: none;
+  border-bottom: 1px solid #333;
+  padding: 4px;
+  margin: 0 4px;
+}
+.search_category {
+  width: 100%;
+  margin: 8px;
+  background: #000;
+}
+.category_title {
+  width: 100%;
+  margin: 0;
+}
+.category_title p {
+  margin: 0;
 }

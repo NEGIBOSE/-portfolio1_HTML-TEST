@@ -17,20 +17,18 @@ function displayResults(results) {
     for (var i = 0; i < results.length; i++) {
       var volumeInfo = results[i].volumeInfo;
       var title = volumeInfo.title;
-      var authors = volumeInfo.authors
-        ? volumeInfo.authors.join(", ")
-        : "Unknown author";
+      var authors = volumeInfo.authors ? volumeInfo.authors.join(", ") : "不明";
       var year = volumeInfo.publishedDate
         ? volumeInfo.publishedDate.substr(0, 4)
-        : "Unknown year";
+        : "不明";
 
       var li = document.createElement("li");
-      li.textContent = title + " by " + authors + ", published in " + year;
+      li.textContent = title + " /著 " + authors + " / " + year + "年";
 
       // クリックしたタイトルを検索ボックスに自動入力する
       li.addEventListener("click", function () {
         document.getElementById("searchTerm").value =
-          this.textContent.split(" by ")[0];
+          this.textContent.split(" 著 ")[0];
       });
 
       ul.appendChild(li);
