@@ -69,6 +69,7 @@ img {
   text-align: center;
   font-size: 24px;
   margin: 4px;
+  color: #333;
 }
 .home_select_u {
   display: flex;
