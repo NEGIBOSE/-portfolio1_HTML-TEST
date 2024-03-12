@@ -39,10 +39,10 @@ body {
   border: 0;
 }
 .searchResults {
-  height: 200px;
+  height: 30vh;
 }
 .searchResults ul {
-  height: 200px; /* 例えば高さを200pxに固定 */
+  height: 30vh; /* 例えば高さを200pxに固定 */
   background: #d9d9d9;
   margin: 8px;
   padding: 0 4px;
@@ -57,13 +57,14 @@ body {
 }
 .search_category {
   width: 100%;
-  margin: 8px;
-  background: #000;
+  margin: 16px 0;
 }
 .category_title {
-  width: 100%;
-  margin: 0;
+  padding: 4px;
 }
 .category_title p {
+  background: #d9d9d9;
+  width: 100%;
   margin: 0;
+  padding: 8px;
 }
