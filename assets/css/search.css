@@ -4,8 +4,6 @@ body {
   background: #eed3d9;
 }
 .search {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 .search_upper {
@@ -57,15 +55,7 @@ body {
   width: 100%;
   margin: 16px 0;
 }
-.category_title {
-  padding: 4px;
-}
-.category_title p {
-  background: #d9d9d9;
-  width: 100%;
-  margin: 0;
-  padding: 8px;
-}
+
 .tabs {
   padding: 0 4px;
 }

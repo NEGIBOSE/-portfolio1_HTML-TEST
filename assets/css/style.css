@@ -33,6 +33,8 @@ footer {
 }
 main {
   height: 96vh;
+  display: flex;
+  flex-direction: column;
 }
 .bg_red {
   background: #eed3d9;
@@ -49,9 +51,16 @@ main {
   background: #d9d9d9;
   padding: 4px;
 }
+.mini_title {
+  padding: 4px;
+}
+.mini_title p {
+  background: #d9d9d9;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+}
 .home {
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 .home_middle {
