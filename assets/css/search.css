@@ -39,10 +39,10 @@ body {
   border: 0;
 }
 .searchResults {
-  height: 30vh;
+  height: 24vh;
 }
 .searchResults ul {
-  height: 30vh; /* 例えば高さを200pxに固定 */
+  height: 24vh; /* 例えば高さを200pxに固定 */
   background: #d9d9d9;
   margin: 8px;
   padding: 0 4px;
@@ -66,18 +66,43 @@ body {
   margin: 0;
   padding: 8px;
 }
-.tab-content {
-  display: none;
+.tabs {
+  padding: 0 4px;
 }
-
+.tab-content {
+  height: 32vh;
+  display: none;
+  background: #d9d9d9;
+}
 .tab-content.active {
   display: block;
 }
 
+.tab-links li a {
+  opacity: 0.4; /* 全てのタブの不透明度を設定 */
+}
+
+.tab-links li.active a,
+.tab-links li a:hover {
+  opacity: 1; /* 選択されたタブとホバー時の不透明度を設定 */
+}
+
+.tab-content_big {
+  height: 32vh;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+.tab-content_big p {
+  margin: 0;
+}
+
+.tab-content_big li {
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
 .category_tab {
-  padding: 4px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .category_tab a {
   padding: 0;
