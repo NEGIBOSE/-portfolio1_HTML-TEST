@@ -6,7 +6,10 @@ function searchBooks() {
 
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displayResults(data.items))
+    .then((data) => {
+      results = data.items; // 検索結果を results 変数に設定する
+      displayResults(results); // displayResults 関数を呼び出して結果を表示する
+    })
     .catch((error) => console.error("Error:", error));
 }
 
@@ -36,8 +39,10 @@ function displayResults(results) {
         document.getElementById("searchTerm").value = selectedTitle;
         // 選択されたタイトルを検索ボックスに自動で入れる
         selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
-        document.getElementById("viewImageLink").href =
-          "img2.html?img=" + encodeURIComponent(selectedImageUrl);
+        sessionStorage.setItem("selectedImageUrl", selectedImageUrl); // 画像URLをセッションストレージに保存
+        // ページ遷移せずに画像URLをregister.htmlに表示させる
+        var registerImage = document.getElementById("registerImage");
+        registerImage.src = selectedImageUrl;
       });
 
       ul.appendChild(li);

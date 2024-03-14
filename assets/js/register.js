@@ -1,10 +1,6 @@
-// URLパラメータから画像のURLを取得
-var urlParams = new URLSearchParams(window.location.search);
-var imageUrl = decodeURIComponent(urlParams.get("img"));
+// セッションストレージから画像のURLを取得
+var selectedImageUrl = sessionStorage.getItem("selectedImageUrl");
 
 // 画像を表示
-var selectedBookImage = document.getElementById("selectedBookImage");
-var img = document.createElement("img");
-img.src = imageUrl;
-img.alt = "Book Image";
-selectedBookImage.appendChild(img);
+var registerImage = document.getElementById("registerImage");
+registerImage.src = selectedImageUrl;
