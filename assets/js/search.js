@@ -2,7 +2,7 @@ var selectedImageUrl; // 選択された本の画像URLを保持する変数
 
 function searchBooks() {
   var searchTerm = document.getElementById("searchTerm").value;
-  var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
+  var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm; // Google Books APIを使用
 
   fetch(url)
     .then((response) => response.json())
