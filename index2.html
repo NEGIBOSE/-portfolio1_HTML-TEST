@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Page</title>
+    <title>Book Search</title>
   </head>
   <body>
+    <h1>Book Search</h1>
     <div class="search_input">
       <input
         type="text"
@@ -19,7 +20,12 @@
       <!-- 検索結果がここに表示されます -->
     </div>
 
+    <!-- 画像表示ページへのリンク -->
+    <a id="viewImageLink" href="#">View Selected Image</a>
+
     <script>
+      var selectedImageUrl; // 選択された本の画像URLを保持する変数
+
       function searchBooks() {
         var searchTerm = document.getElementById("searchTerm").value;
         var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
@@ -50,22 +56,16 @@
               : "";
 
             var li = document.createElement("li");
-            var img = document.createElement("img");
-            img.src = thumbnail;
-            img.alt = title + "の表紙画像";
+            li.textContent = title + " /著 " + authors + " / " + year + "年";
 
-            var textSpan = document.createElement("span");
-            textSpan.textContent =
-              title + " /著 " + authors + " / " + year + "年";
-            li.appendChild(img);
-            li.appendChild(textSpan);
-
-            // 画像をクリックしたときの処理
-            img.addEventListener("click", function () {
-              var imageUrl = this.src;
-              // 画像URLを次のページに渡してリダイレクト
-              window.location.href =
-                "register.html?img=" + encodeURIComponent(imageUrl);
+            // タイトルをクリックした際の処理
+            li.addEventListener("click", function () {
+              var selectedTitle = this.textContent.split(" /")[0];
+              document.getElementById("searchTerm").value = selectedTitle;
+              // 選択されたタイトルを検索ボックスに自動で入れる
+              selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
+              document.getElementById("viewImageLink").href =
+                "img2.html?img=" + encodeURIComponent(selectedImageUrl);
             });
 
             ul.appendChild(li);
