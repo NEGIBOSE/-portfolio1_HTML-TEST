@@ -1,3 +1,5 @@
+var selectedImageUrl; // 選択された本の画像URLを保持する変数
+
 function searchBooks() {
   var searchTerm = document.getElementById("searchTerm").value;
   var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
@@ -21,21 +23,21 @@ function displayResults(results) {
       var year = volumeInfo.publishedDate
         ? volumeInfo.publishedDate.substr(0, 4)
         : "不明";
-      var url = volumeInfo.previewLink;
+      var thumbnail = volumeInfo.imageLinks
+        ? volumeInfo.imageLinks.thumbnail
+        : "";
 
       var li = document.createElement("li");
-      var textSpan = document.createElement("span");
-      textSpan.textContent = title + " /著 " + authors + " / " + year + "年";
-      li.appendChild(textSpan);
+      li.textContent = title + " /著 " + authors + " / " + year + "年";
 
-      // クリックしたタイトルを検索ボックスに自動入力する
+      // タイトルをクリックした際の処理
       li.addEventListener("click", function () {
-        document.getElementById("searchTerm").value = this.textContent;
-      });
-
-      // クリックしたタイトルのURLを保持する
-      li.addEventListener("click", function () {
-        selectedUrl = url; // 変更: 直接 `url` を代入する
+        var selectedTitle = this.textContent.split(" /")[0];
+        document.getElementById("searchTerm").value = selectedTitle;
+        // 選択されたタイトルを検索ボックスに自動で入れる
+        selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
+        document.getElementById("viewImageLink").href =
+          "img2.html?img=" + encodeURIComponent(selectedImageUrl);
       });
 
       ul.appendChild(li);
