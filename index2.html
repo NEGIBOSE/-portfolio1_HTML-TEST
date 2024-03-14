@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Page</title>
+  </head>
+  <body>
+    <div class="search_input">
+      <input
+        type="text"
+        id="searchTerm"
+        placeholder="Search for a book..."
+        class="select_text"
+      />
+      <button onclick="searchBooks()" class="select_text">Search</button>
+    </div>
+    <div id="searchResults" class="searchResults">
+      <!-- 検索結果がここに表示されます -->
+    </div>
+
+    <script>
+      function searchBooks() {
+        var searchTerm = document.getElementById("searchTerm").value;
+        var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => displayResults(data.items))
+          .catch((error) => console.error("Error:", error));
+      }
+
+      function displayResults(results) {
+        var container = document.getElementById("searchResults");
+        container.innerHTML = ""; // 検索結果をクリア
+
+        if (results && results.length > 0) {
+          var ul = document.createElement("ul");
+          for (var i = 0; i < results.length; i++) {
+            var volumeInfo = results[i].volumeInfo;
+            var title = volumeInfo.title;
+            var authors = volumeInfo.authors
+              ? volumeInfo.authors.join(", ")
+              : "不明";
+            var year = volumeInfo.publishedDate
+              ? volumeInfo.publishedDate.substr(0, 4)
+              : "不明";
+            var thumbnail = volumeInfo.imageLinks
+              ? volumeInfo.imageLinks.thumbnail
+              : "";
+
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+            img.src = thumbnail;
+            img.alt = title + "の表紙画像";
+
+            var textSpan = document.createElement("span");
+            textSpan.textContent =
+              title + " /著 " + authors + " / " + year + "年";
+            li.appendChild(img);
+            li.appendChild(textSpan);
+
+            // 画像をクリックしたときの処理
+            img.addEventListener("click", function () {
+              var imageUrl = this.src;
+              // 画像URLを次のページに渡してリダイレクト
+              window.location.href =
+                "register.html?img=" + encodeURIComponent(imageUrl);
+            });
+
+            ul.appendChild(li);
+          }
+          container.appendChild(ul);
+        } else {
+          container.innerHTML = "<p>No results found</p>";
+        }
+      }
+    </script>
+  </body>
+</html>

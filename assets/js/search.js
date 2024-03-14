@@ -1,3 +1,51 @@
+function searchBooks() {
+  var searchTerm = document.getElementById("searchTerm").value;
+  var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => displayResults(data.items))
+    .catch((error) => console.error("Error:", error));
+}
+
+function displayResults(results) {
+  var container = document.getElementById("searchResults");
+  container.innerHTML = ""; // 検索結果をクリア
+
+  if (results && results.length > 0) {
+    var ul = document.createElement("ul");
+    for (var i = 0; i < results.length; i++) {
+      var volumeInfo = results[i].volumeInfo;
+      var title = volumeInfo.title;
+      var authors = volumeInfo.authors ? volumeInfo.authors.join(", ") : "不明";
+      var year = volumeInfo.publishedDate
+        ? volumeInfo.publishedDate.substr(0, 4)
+        : "不明";
+      var url = volumeInfo.previewLink;
+
+      var li = document.createElement("li");
+      var textSpan = document.createElement("span");
+      textSpan.textContent = title + " /著 " + authors + " / " + year + "年";
+      li.appendChild(textSpan);
+
+      // クリックしたタイトルを検索ボックスに自動入力する
+      li.addEventListener("click", function () {
+        document.getElementById("searchTerm").value = this.textContent;
+      });
+
+      // クリックしたタイトルのURLを保持する
+      li.addEventListener("click", function () {
+        selectedUrl = url; // 変更: 直接 `url` を代入する
+      });
+
+      ul.appendChild(li);
+    }
+    container.appendChild(ul);
+  } else {
+    container.innerHTML = "<p>No results found</p>";
+  }
+}
+
 // タブの作成
 document.addEventListener("DOMContentLoaded", function () {
   // タブのリンクを取得
