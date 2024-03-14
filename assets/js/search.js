@@ -38,17 +38,8 @@ function displayResults(results) {
       img.src = thumbnail;
       li.appendChild(img);
 
-      // タイトルをクリックした際の処理
-      li.addEventListener("click", function () {
-        var selectedTitle = this.textContent.split(" /")[0];
-        document.getElementById("searchTerm").value = selectedTitle;
-        // 選択されたタイトルを検索ボックスに自動で入れる
-        selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
-        sessionStorage.setItem("selectedImageUrl", selectedImageUrl); // 画像URLをセッションストレージに保存
-        // ページ遷移せずに画像URLをregister.htmlに表示させる
-        var registerImage = document.getElementById("registerImage");
-        registerImage.src = selectedImageUrl;
-      });
+      // クリックイベントのハンドラをラップしてthumbnailを渡す
+      li.addEventListener("click", createClickHandler(thumbnail));
 
       ul.appendChild(li);
     }
@@ -56,6 +47,20 @@ function displayResults(results) {
   } else {
     container.innerHTML = "<p>No results found</p>";
   }
+}
+
+// クリックイベントのハンドラを作成する関数
+function createClickHandler(thumbnail) {
+  return function () {
+    var selectedTitle = this.textContent.split(" /")[0];
+    document.getElementById("searchTerm").value = selectedTitle;
+    // 選択されたタイトルを検索ボックスに自動で入れる
+    selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
+    sessionStorage.setItem("selectedImageUrl", selectedImageUrl); // 画像URLをセッションストレージに保存
+    // ページ遷移せずに画像URLをregister.htmlに表示させる
+    var registerImage = document.getElementById("registerImage");
+    registerImage.src = selectedImageUrl;
+  };
 }
 
 // タブの作成
