@@ -24,7 +24,7 @@
     <a id="viewImageLink" href="#">View Selected Image</a>
 
     <script>
-      var selectedImageUrl; // 選択された本の画像URLを保持する変数
+      var results; // 検索結果を保持する変数を定義
 
       function searchBooks() {
         var searchTerm = document.getElementById("searchTerm").value;
@@ -32,7 +32,10 @@
 
         fetch(url)
           .then((response) => response.json())
-          .then((data) => displayResults(data.items))
+          .then((data) => {
+            results = data.items; // 検索結果を results 変数に設定する
+            displayResults(results); // displayResults 関数を呼び出して結果を表示する
+          })
           .catch((error) => console.error("Error:", error));
       }
 
@@ -63,10 +66,16 @@
               var selectedTitle = this.textContent.split(" /")[0];
               document.getElementById("searchTerm").value = selectedTitle;
               // 選択されたタイトルを検索ボックスに自動で入れる
-              selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
+              var selectedThumbnail = this.querySelector("img").src; // クリックしたリストのサムネイル URL を取得
+              selectedImageUrl = selectedThumbnail; // 選択された本の画像URLを保持する
               document.getElementById("viewImageLink").href =
                 "img2.html?img=" + encodeURIComponent(selectedImageUrl);
             });
+
+            // サムネイル画像の表示
+            var img = document.createElement("img");
+            img.src = thumbnail;
+            li.appendChild(img);
 
             ul.appendChild(li);
           }
