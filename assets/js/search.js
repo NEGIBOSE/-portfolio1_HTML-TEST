@@ -33,6 +33,11 @@ function displayResults(results) {
       var li = document.createElement("li");
       li.textContent = title + " /著 " + authors + " / " + year + "年";
 
+      // サムネイル画像を表示
+      var img = document.createElement("img");
+      img.src = thumbnail;
+      li.appendChild(img);
+
       // タイトルをクリックした際の処理
       li.addEventListener("click", function () {
         var selectedTitle = this.textContent.split(" /")[0];
