@@ -1,47 +1,52 @@
-var selectedImageUrl; // 選択された本の画像URLを保持する変数
+// 選択された本の画像URLを保持する変数
+let selectedImageUrl;
 
+// 書籍を検索する関数
 function searchBooks() {
-  var searchTerm = document.getElementById("searchTerm").value;
-  var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm; // Google Books APIを使用
+  const searchTerm = document.getElementById("searchTerm").value;
+  const url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm; // Google Books APIを使用
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      results = data.items; // 検索結果を results 変数に設定する
+      const results = data.items; // 検索結果を results 変数に設定する
       displayResults(results); // displayResults 関数を呼び出して結果を表示する
     })
     .catch((error) => console.error("Error:", error));
 }
 
+// 書籍の検索結果を表示する関数
 function displayResults(results) {
-  var container = document.getElementById("searchResults");
+  const container = document.getElementById("searchResults");
   container.innerHTML = ""; // 検索結果をクリア
 
   if (results && results.length > 0) {
-    var ul = document.createElement("ul");
-    for (var i = 0; i < results.length; i++) {
-      var volumeInfo = results[i].volumeInfo;
-      var title = volumeInfo.title;
-      var authors = volumeInfo.authors ? volumeInfo.authors.join(", ") : "不明";
-      var year = volumeInfo.publishedDate
+    const ul = document.createElement("ul");
+    for (let i = 0; i < results.length; i++) {
+      const volumeInfo = results[i].volumeInfo;
+      const title = volumeInfo.title;
+      const authors = volumeInfo.authors
+        ? volumeInfo.authors.join(", ")
+        : "不明";
+      const year = volumeInfo.publishedDate
         ? volumeInfo.publishedDate.substr(0, 4)
         : "不明";
-      var thumbnail = volumeInfo.imageLinks
+      const thumbnail = volumeInfo.imageLinks
         ? volumeInfo.imageLinks.thumbnail
         : "";
 
-      var li = document.createElement("li");
+      const li = document.createElement("li");
       li.style.display = "flex"; // リストアイテムをフレックスボックスに設定
       li.style.alignItems = "center"; // アイテムを中央に配置
 
       // サムネイル画像を表示
-      var img = document.createElement("img");
+      const img = document.createElement("img");
       img.src = thumbnail;
       img.style.marginRight = "10px"; // 画像の右側に余白を設定
       li.appendChild(img);
 
       // タイトルと著者と年のテキストを追加
-      var text = document.createTextNode(
+      const text = document.createTextNode(
         title + " /著 " + authors + " / " + year + "年"
       );
       li.appendChild(text);
@@ -60,13 +65,13 @@ function displayResults(results) {
 // クリックイベントのハンドラを作成する関数
 function createClickHandler(thumbnail) {
   return function () {
-    var selectedTitle = this.textContent.split(" /")[0];
+    const selectedTitle = this.textContent.split(" /")[0];
     document.getElementById("searchTerm").value = selectedTitle;
     // 選択されたタイトルを検索ボックスに自動で入れる
     selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
     sessionStorage.setItem("selectedImageUrl", selectedImageUrl); // 画像URLをセッションストレージに保存
     // ページ遷移せずに画像URLをregister.htmlに表示させる
-    var registerImage = document.getElementById("registerImage");
+    const registerImage = document.getElementById("registerImage");
     registerImage.src = selectedImageUrl;
   };
 }
