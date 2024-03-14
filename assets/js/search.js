@@ -31,12 +31,20 @@ function displayResults(results) {
         : "";
 
       var li = document.createElement("li");
-      li.textContent = title + " /著 " + authors + " / " + year + "年";
+      li.style.display = "flex"; // リストアイテムをフレックスボックスに設定
+      li.style.alignItems = "center"; // アイテムを中央に配置
 
       // サムネイル画像を表示
       var img = document.createElement("img");
       img.src = thumbnail;
+      img.style.marginRight = "10px"; // 画像の右側に余白を設定
       li.appendChild(img);
+
+      // タイトルと著者と年のテキストを追加
+      var text = document.createTextNode(
+        title + " /著 " + authors + " / " + year + "年"
+      );
+      li.appendChild(text);
 
       // クリックイベントのハンドラをラップしてthumbnailを渡す
       li.addEventListener("click", createClickHandler(thumbnail));
