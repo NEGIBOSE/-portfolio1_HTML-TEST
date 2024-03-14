@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Search</title>
+    <style>
+      .bookContainer {
+        display: flex;
+        align-items: center;
+      }
+
+      .bookContainer img {
+        margin-right: 10px;
+        max-width: 100px;
+        height: auto;
+      }
+    </style>
   </head>
   <body>
     <h1>Book Search</h1>
@@ -61,6 +73,20 @@
             var li = document.createElement("li");
             li.textContent = title + " /著 " + authors + " / " + year + "年";
 
+            var li = document.createElement("li");
+            li.classList.add("bookContainer");
+
+            // サムネイル画像の表示
+            var img = document.createElement("img");
+            img.src = thumbnail;
+            img.classList.add("thumbnail");
+            li.appendChild(img);
+
+            var textSpan = document.createElement("span");
+            textSpan.textContent =
+              title + " /著 " + authors + " / " + year + "年";
+            li.appendChild(textSpan);
+
             // タイトルをクリックした際の処理
             li.addEventListener("click", function () {
               var selectedTitle = this.textContent.split(" /")[0];
@@ -71,11 +97,6 @@
               document.getElementById("viewImageLink").href =
                 "img2.html?img=" + encodeURIComponent(selectedImageUrl);
             });
-
-            // サムネイル画像の表示
-            var img = document.createElement("img");
-            img.src = thumbnail;
-            li.appendChild(img);
 
             ul.appendChild(li);
           }
