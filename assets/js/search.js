@@ -52,7 +52,7 @@ function displayResults(results) {
       li.appendChild(text);
 
       // クリックイベントのハンドラをラップしてthumbnailを渡す
-      li.addEventListener("click", createClickHandler(thumbnail));
+      li.addEventListener("click", createClickHandler(thumbnail, title));
 
       ul.appendChild(li);
     }
@@ -63,9 +63,9 @@ function displayResults(results) {
 }
 
 // クリックイベントのハンドラを作成する関数
-function createClickHandler(thumbnail) {
+function createClickHandler(thumbnail, title) {
   return function () {
-    const selectedTitle = this.textContent.split(" /")[0];
+    const selectedTitle = title; // タイトルを取得
     document.getElementById("searchTerm").value = selectedTitle;
     // 選択されたタイトルを検索ボックスに自動で入れる
     selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
