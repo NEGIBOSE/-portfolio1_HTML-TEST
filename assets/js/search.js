@@ -69,6 +69,7 @@ function createClickHandler(thumbnail, title) {
     document.getElementById("searchTerm").value = selectedTitle;
     // 選択されたタイトルを検索ボックスに自動で入れる
     selectedImageUrl = thumbnail; // 選択された本の画像URLを保持する
+    sessionStorage.setItem("selectedTitle", selectedTitle); // タイトルをセッションストレージに保存
     sessionStorage.setItem("selectedImageUrl", selectedImageUrl); // 画像URLをセッションストレージに保存
     // ページ遷移せずに画像URLをregister.htmlに表示させる
     const registerImage = document.getElementById("registerImage");
