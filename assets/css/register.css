@@ -3,3 +3,7 @@
 .register {
   justify-content: space-between;
 }
+.register_middle {
+  display: flex;
+  justify-content: center;
+}
