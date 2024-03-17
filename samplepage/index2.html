@@ -95,7 +95,10 @@
               var selectedThumbnail = this.querySelector("img").src; // クリックしたリストのサムネイル URL を取得
               selectedImageUrl = selectedThumbnail; // 選択された本の画像URLを保持する
               document.getElementById("viewImageLink").href =
-                "img2.html?img=" + encodeURIComponent(selectedImageUrl);
+                "img2.html?img=" +
+                encodeURIComponent(selectedImageUrl) +
+                "&title=" +
+                encodeURIComponent(selectedTitle);
             });
 
             ul.appendChild(li);

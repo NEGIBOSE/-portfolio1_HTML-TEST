@@ -7,19 +7,34 @@
   </head>
   <body>
     <h1>Selected Image</h1>
-    <img id="selectedImage" src="" alt="Selected Book Image" />
 
-    <!-- 戻るリンク -->
-    <a href="index2.html">Back to Search Page</a>
+    <!-- 画像を表示する要素 -->
+    <img
+      id="selectedImage"
+      src=""
+      alt="Selected Book Image"
+      style="max-width: 100%"
+    />
+
+    <!-- タイトルを表示する要素 -->
+    <h2 id="selectedTitle"></h2>
 
     <script>
-      // URLパラメータから画像のURLを取得
-      var urlParams = new URLSearchParams(window.location.search);
-      var imageUrl = decodeURIComponent(urlParams.get("img"));
+      // URLからクエリパラメータを取得
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
 
-      // 画像を表示
-      var selectedImage = document.getElementById("selectedImage");
-      selectedImage.src = imageUrl;
+      // クエリパラメータ 'img' の値を取得
+      const selectedImageUrl = decodeURIComponent(urlParams.get("img"));
+
+      // クエリパラメータ 'title' の値を取得
+      const selectedTitle = decodeURIComponent(urlParams.get("title"));
+
+      // 'selectedImageUrl' を使用して画像を表示
+      document.getElementById("selectedImage").src = selectedImageUrl;
+
+      // 'selectedTitle' を使用してタイトルを表示
+      document.getElementById("selectedTitle").textContent = selectedTitle;
     </script>
   </body>
 </html>
