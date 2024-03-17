@@ -3,6 +3,9 @@
 .register {
   justify-content: space-between;
 }
+#selectedTitle {
+  font-size: 16px;
+}
 .register_middle {
   display: flex;
   justify-content: center;
