@@ -11,5 +11,6 @@
   justify-content: center;
 }
 .register_middle img {
-  width: 300px;
+  height: 400px;
+  width: auto;
 }
