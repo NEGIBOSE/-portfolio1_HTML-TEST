@@ -6,6 +6,27 @@
 #comment {
   display: none; /* 初期状態では非表示に設定 */
 }
+.reading .mini_title {
+  margin-top: 16%;
+}
+.reading .mini_title p {
+  background: none;
+}
+/* コメントが徐々に現れるアニメーションの定義 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* 開始時の透明度 */
+  }
+  100% {
+    opacity: 1; /* 終了時の透明度 */
+  }
+}
+
+/* アニメーションを適用する要素 */
+.fade-in-comment {
+  animation: fadeIn 1s ease-in; /* アニメーションを1秒かけて実行（イージングを使用） */
+}
+
 .reading_girl {
   position: absolute;
   top: 50%;
