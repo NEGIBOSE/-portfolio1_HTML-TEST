@@ -141,7 +141,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // 関連するカテゴリーを取得
       var category = this.getAttribute("data-category");
 
-      // 対応するカテゴリーを処理する関数を呼び出し、結果をalertで表示する
+      // クリックされたアイコンのSVG要素の内容を取得してセッションストレージに保存
+      var svgContent = this.querySelector("svg").outerHTML;
+      sessionStorage.setItem("selectedIcon", svgContent);
+
+      // 選択されたカテゴリーを処理する関数を呼び出し、結果をalertで表示する
       alert(processCategory(category));
     });
   });

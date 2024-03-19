@@ -9,3 +9,16 @@ selectedImage.src = selectedImageUrl;
 // タイトルを表示する要素のIDを取得し、選択した本のタイトルを設定
 var titleElement = document.getElementById("selectedTitle");
 titleElement.textContent = selectedTitle;
+
+document.addEventListener("DOMContentLoaded", function () {
+  // セッションストレージから選択したアイコンを取得
+  var selectedIcon = sessionStorage.getItem("selectedIcon");
+  if (selectedIcon) {
+    // アイコンを表示する要素を取得
+    var iconContainer = document.getElementById("selectedIconContainer");
+    console.log(iconContainer); // iconContainerが正しく取得されていることを確認
+
+    // セッションストレージから保存されたSVGの内容を取得して表示する
+    iconContainer.innerHTML = selectedIcon;
+  }
+});
