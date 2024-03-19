@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+.reading {
+  justify-content: center;
+}
+.reading_girl {
+  width: 80%;
+  margin: 0 auto;
+}
 .reading_girl img {
   width: 100%;
 }
