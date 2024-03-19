@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var commentElement = document.getElementById("comment");
     commentElement.style.display = "block"; // コメントを表示
-  }, 4000); // 5000ミリ秒（5秒）後に実行
+  }, 4000); // 4000ミリ秒（4秒）後に実行
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -49,4 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ランダムなコメントを表示
   document.getElementById("comment").textContent = randomComment;
+});
+
+// ページの読み込みが完了したときに実行
+document.addEventListener("DOMContentLoaded", function () {
+  // 7秒後にindex.htmlに遷移する関数
+  function redirectToNextPage() {
+    window.location.href = "index.html"; // 次のページへの遷移
+  }
+
+  // 7秒後にredirectToNextPage関数を実行
+  setTimeout(redirectToNextPage, 7000); // ミリ秒単位で指定するため、7000ミリ秒＝7秒
 });
