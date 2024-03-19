@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 .reading {
-  justify-content: center;
   position: relative;
 }
 #comment {
@@ -14,8 +13,11 @@
   transform: translate(-50%, -50%);
 }
 .reading_girl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 80%;
-  margin: 0 auto;
 }
 .reading_girl img {
   width: 100%;
