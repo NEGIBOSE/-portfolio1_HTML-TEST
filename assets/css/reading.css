@@ -2,8 +2,14 @@
 
 .reading {
   justify-content: center;
+  position: relative;
 }
-
+.reading_bookimg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .reading_girl {
   width: 80%;
   margin: 0 auto;
