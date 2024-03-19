@@ -111,30 +111,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // カテゴリーを処理する関数
 function processCategory(category) {
-  // カテゴリーに応じた処理を行う
   switch (category) {
     case "magic":
-      console.log("マジックカテゴリーが選択されました。");
-      // マジックカテゴリーの処理を記述する
-      break;
+      return "SFを選択しました";
     case "human":
-      console.log("ヒューマンカテゴリーが選択されました。");
-      // ヒューマンカテゴリーの処理を記述する
-      break;
+      return "ノンフィクションを選択しました";
     case "love":
-      console.log("ラブカテゴリーが選択されました。");
-      // ラブカテゴリーの処理を記述する
-      break;
+      return "ラブを選択しました";
     case "comedy":
-      console.log("コメディカテゴリーが選択されました。");
-      // コメディカテゴリーの処理を記述する
-      break;
+      return "コメディを選択しました";
     case "horror":
-      console.log("ホラーカテゴリーが選択されました。");
-      // ホラーカテゴリーの処理を記述する
-      break;
+      return "ホラーを選択しました";
     default:
-      console.log("未知のカテゴリーが選択されました。");
+      return "選択されませんでした";
   }
 }
 
@@ -152,8 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // 関連するカテゴリーを取得
       var category = this.getAttribute("data-category");
 
-      // 対応するカテゴリーを処理する関数を呼び出す
-      processCategory(category);
+      // 対応するカテゴリーを処理する関数を呼び出し、結果をalertで表示する
+      alert(processCategory(category));
     });
   });
 });
