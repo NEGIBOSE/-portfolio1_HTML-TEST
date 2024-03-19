@@ -64,7 +64,8 @@ main {
   justify-content: space-between;
 }
 .home_middle {
-  padding: 16px;
+  width: 92%;
+  margin: 0 auto;
 }
 .home_icon {
   background: #d9d9d9;
