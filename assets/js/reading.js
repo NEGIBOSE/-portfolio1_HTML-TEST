@@ -5,6 +5,25 @@ var selectedImageUrl = sessionStorage.getItem("selectedImageUrl");
 var selectedImage = document.getElementById("selectedImage");
 selectedImage.src = selectedImageUrl;
 
+// アニメーションが終了した後に要素を非表示にする関数
+function hideElementAfterAnimation() {
+  var rotatingShrinkingImage = document.querySelector(
+    ".rotating-shrinking-image"
+  );
+  rotatingShrinkingImage.style.visibility = "hidden"; // 要素を非表示にする
+}
+
+// アニメーションが終了したら要素を非表示にするイベントリスナーを追加
+document.addEventListener("DOMContentLoaded", function () {
+  var rotatingShrinkingImage = document.querySelector(
+    ".rotating-shrinking-image"
+  );
+  rotatingShrinkingImage.addEventListener(
+    "animationend",
+    hideElementAfterAnimation
+  );
+});
+
 // ページの読み込みが完了したときに実行
 document.addEventListener("DOMContentLoaded", function () {
   // 5秒後にコメントを表示する

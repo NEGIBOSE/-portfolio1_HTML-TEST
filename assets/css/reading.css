@@ -26,12 +26,16 @@
   0% {
     transform: rotate(0deg) scale(1); /* 開始時の回転角度とサイズ */
   }
+  90% {
+    transform: rotate(360deg) scale(0.1); /* 縮小 */
+  }
   100% {
     transform: rotate(360deg) scale(0); /* 終了時の回転角度とサイズ */
+    visibility: hidden;
   }
 }
 
 /* アニメーションを適用する要素 */
 .rotating-shrinking-image {
-  animation: rotateAndShrink 2s linear infinite; /* アニメーションを2秒かけて実行し、無限に繰り返す */
+  animation: rotateAndShrink 2s linear; /* アニメーションを2秒かけて実行。無限に繰り返す場合 infinitを追記 */
 }
