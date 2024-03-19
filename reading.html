@@ -15,43 +15,39 @@
     <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="./assets/css/sanitize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/register.css" />
+    <link rel="stylesheet" href="./assets/css/reading.css" />
   </head>
   <body>
-    <header class="header bg_red">
+    <header class="header">
       <div class="title">Chara-Books</div>
     </header>
-    <main class="register bg_red">
-      <div class="register_upper">
-        <div class="mini_title">
-          <p class="select_text">この本を読み聞かせますか？</p>
-        </div>
-        <!-- アイコンの呼び出し -->
-        <div class="icon">
-          <div id="selectedIconContainer"></div>
-        </div>
-        <div class="mini_title">
-          <p id="selectedTitle" class="select_text">本のタイトル</p>
+    <main class="reading">
+      <div class="home_upper">aaaaa</div>
+      <div class="home_middle">
+        <div class="home_icon"></div>
+        <div class="home_pic">
+          <img id="myImage" src="" alt="Image" />
         </div>
       </div>
-      <!-- 画像の呼び出し -->
-      <div class="register_middle">
-        <img id="selectedImage" src="" alt="Selected Book Image" />
-      </div>
-      <div class="register_lower">
+      <div class="home_select">
         <div class="home_select_u">
           <div class="select_text bg_red">
-            <a href="reading.html">はい</a>
+            <a href="search.html">読み聞かせ</a>
           </div>
           <div class="select_text bg_yellow">
-            <a href="search.html">いいえ</a>
+            <a href="#">本棚</a>
           </div>
+        </div>
+        <div class="home_select_l select_text">
+          <a href="#">成長記録を見る</a>
         </div>
       </div>
     </main>
     <footer>&copy; 2024 My portfolio</footer>
     <!-- JavaScriptファイルの読み込み -->
-    <script src="assets/js/register.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/reading.js"></script>
+
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
