@@ -110,23 +110,50 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // カテゴリーを処理する関数
-function processLove() {
-  // ここに"ラブ"カテゴリーの処理を追加する
-  console.log("ラブカテゴリーが選択されました。");
-  // 例: カテゴリーが選択された後の処理を記述する
+function processCategory(category) {
+  // カテゴリーに応じた処理を行う
+  switch (category) {
+    case "magic":
+      console.log("マジックカテゴリーが選択されました。");
+      // マジックカテゴリーの処理を記述する
+      break;
+    case "human":
+      console.log("ヒューマンカテゴリーが選択されました。");
+      // ヒューマンカテゴリーの処理を記述する
+      break;
+    case "love":
+      console.log("ラブカテゴリーが選択されました。");
+      // ラブカテゴリーの処理を記述する
+      break;
+    case "comedy":
+      console.log("コメディカテゴリーが選択されました。");
+      // コメディカテゴリーの処理を記述する
+      break;
+    case "horror":
+      console.log("ホラーカテゴリーが選択されました。");
+      // ホラーカテゴリーの処理を記述する
+      break;
+    default:
+      console.log("未知のカテゴリーが選択されました。");
+  }
 }
 
 // ページの読み込みが完了したときに実行
 document.addEventListener("DOMContentLoaded", function () {
   // カテゴリーアイコンの要素を取得
-  var loveIcon = document.querySelector(".icon_love");
+  var categoryIcons = document.querySelectorAll(".category-icon");
 
-  // カテゴリーアイコンがクリックされたときのイベントリスナーを追加
-  loveIcon.addEventListener("click", function (event) {
-    // デフォルトの動作を無効化
-    event.preventDefault();
+  // 各カテゴリーアイコンがクリックされたときのイベントリスナーを追加
+  categoryIcons.forEach(function (icon) {
+    icon.addEventListener("click", function (event) {
+      // デフォルトの動作を無効化
+      event.preventDefault();
 
-    // "ラブ"カテゴリーを処理する関数を呼び出す
-    processLove();
+      // 関連するカテゴリーを取得
+      var category = this.getAttribute("data-category");
+
+      // 対応するカテゴリーを処理する関数を呼び出す
+      processCategory(category);
+    });
   });
 });
