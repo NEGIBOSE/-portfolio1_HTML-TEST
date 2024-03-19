@@ -3,6 +3,21 @@
 .reading {
   justify-content: center;
 }
+/* 回転アニメーションの定義 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 回転アニメーションを適用する要素 */
+.rotating-image {
+  animation: rotate 2s linear infinite; /* 回転アニメーションを2秒ごとに繰り返し、線形に実行する */
+}
+
 .reading_girl {
   width: 80%;
   margin: 0 auto;
