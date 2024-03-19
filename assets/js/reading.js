@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // ランダムなコメントの配列
   const comments = [
-    "とても面白い本です！",
-    "楽しく読めますよ。",
-    "感動的なストーリーです。",
-    "ちょっと怖いけど面白いです。",
-    "ファンタジー好きにおすすめです。",
+    "うれしそうだ",
+    "よろこんでいる",
+    "はしゃいでいる",
+    "こんな本があったなんて...",
+    "す、すっげぇ",
   ];
 
   // ランダムなコメントを選択
