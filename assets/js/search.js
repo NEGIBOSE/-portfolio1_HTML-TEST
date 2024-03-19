@@ -74,6 +74,9 @@ function createClickHandler(thumbnail, title) {
     // ページ遷移せずに画像URLをregister.htmlに表示させる
     const registerImage = document.getElementById("registerImage");
     registerImage.src = selectedImageUrl;
+    // reading.htmlにも画像URLを引き渡す
+    const readingImage = document.getElementById("readingImage");
+    readingImage.src = selectedImageUrl;
   };
 }
 
