@@ -7,7 +7,7 @@
   display: none; /* 初期状態では非表示に設定 */
 }
 .reading .mini_title {
-  margin-top: 16%;
+  margin-top: 24%;
 }
 .reading .mini_title p {
   background: none;

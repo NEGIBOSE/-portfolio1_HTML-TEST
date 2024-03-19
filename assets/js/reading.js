@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var commentElement = document.getElementById("comment");
     commentElement.style.display = "block"; // コメントを表示
-  }, 5000); // 5000ミリ秒（5秒）後に実行
+  }, 4000); // 5000ミリ秒（5秒）後に実行
 });
 
 document.addEventListener("DOMContentLoaded", function () {
