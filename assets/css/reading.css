@@ -4,6 +4,9 @@
   justify-content: center;
   position: relative;
 }
+#comment {
+  display: none; /* 初期状態では非表示に設定 */
+}
 .reading_bookimg {
   position: absolute;
   top: 50%;
