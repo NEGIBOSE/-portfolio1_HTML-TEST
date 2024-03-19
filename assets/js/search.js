@@ -108,3 +108,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// カテゴリーを処理する関数
+function processLove() {
+  // ここに"ラブ"カテゴリーの処理を追加する
+  console.log("ラブカテゴリーが選択されました。");
+  // 例: カテゴリーが選択された後の処理を記述する
+}
+
+// ページの読み込みが完了したときに実行
+document.addEventListener("DOMContentLoaded", function () {
+  // カテゴリーアイコンの要素を取得
+  var loveIcon = document.querySelector(".icon_love");
+
+  // カテゴリーアイコンがクリックされたときのイベントリスナーを追加
+  loveIcon.addEventListener("click", function (event) {
+    // デフォルトの動作を無効化
+    event.preventDefault();
+
+    // "ラブ"カテゴリーを処理する関数を呼び出す
+    processLove();
+  });
+});
