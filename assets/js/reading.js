@@ -32,3 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
     commentElement.style.display = "block"; // コメントを表示
   }, 5000); // 5000ミリ秒（5秒）後に実行
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ランダムなコメントの配列
+  const comments = [
+    "とても面白い本です！",
+    "楽しく読めますよ。",
+    "感動的なストーリーです。",
+    "ちょっと怖いけど面白いです。",
+    "ファンタジー好きにおすすめです。",
+  ];
+
+  // ランダムなコメントを選択
+  const randomIndex = Math.floor(Math.random() * comments.length);
+  const randomComment = comments[randomIndex];
+
+  // ランダムなコメントを表示
+  document.getElementById("comment").textContent = randomComment;
+});

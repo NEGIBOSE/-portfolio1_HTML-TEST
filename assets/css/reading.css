@@ -6,12 +6,6 @@
 #comment {
   display: none; /* 初期状態では非表示に設定 */
 }
-.reading_bookimg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .reading_girl {
   position: absolute;
   top: 50%;
@@ -21,6 +15,12 @@
 }
 .reading_girl img {
   width: 100%;
+}
+.reading_bookimg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* 回転と縮小アニメーションの定義 */
