@@ -3,20 +3,6 @@
 .reading {
   justify-content: center;
 }
-/* 回転アニメーションの定義 */
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* 回転アニメーションを適用する要素 */
-.rotating-image {
-  animation: rotate 2s linear infinite; /* 回転アニメーションを2秒ごとに繰り返し、線形に実行する */
-}
 
 .reading_girl {
   width: 80%;
@@ -24,4 +10,19 @@
 }
 .reading_girl img {
   width: 100%;
+}
+
+/* 回転と縮小アニメーションの定義 */
+@keyframes rotateAndShrink {
+  0% {
+    transform: rotate(0deg) scale(1); /* 開始時の回転角度とサイズ */
+  }
+  100% {
+    transform: rotate(360deg) scale(0); /* 終了時の回転角度とサイズ */
+  }
+}
+
+/* アニメーションを適用する要素 */
+.rotating-shrinking-image {
+  animation: rotateAndShrink 2s linear infinite; /* アニメーションを2秒かけて実行し、無限に繰り返す */
 }
