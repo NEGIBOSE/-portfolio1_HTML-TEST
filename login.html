@@ -15,15 +15,31 @@
     <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="./assets/css/sanitize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/login.css" />
   </head>
   <body>
     <header class="header">
       <div class="title">Chara-Books</div>
     </header>
-    <main class="login"></main>
+    <main class="login">
+      <h1>Login</h1>
+      <form id="loginForm">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+        <p id="errorMessage" class="error-message"></p>
+        <!-- エラーメッセージの表示用 -->
+      </form>
+    </main>
     <footer>&copy; 2024 My portfolio</footer>
     <!-- JavaScriptファイルの読み込み -->
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/login.js"></script>
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"

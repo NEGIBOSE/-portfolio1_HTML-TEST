@@ -14,7 +14,7 @@ body {
   background: #b5c0d0;
 }
 .header {
-  display: flex;
+  display: flex; /*一時的*/
   text-align: center;
   height: 4vh;
 }
